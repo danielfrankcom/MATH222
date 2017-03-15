@@ -27,6 +27,9 @@
 			\item If $R$ is a relation on $A$ that is antisymmetric, then it may not contain any 2 pairs such that $(x,y)$ and $(y,x)$ are both in $R$ unless $x=y$.
 			\newline $\therefore$ we can count the number of elements in the upper diagonal half of the corresponding relation matrix.
 			\newline This is equivalent to $\sum\limits_{i=1}^{n}i=\frac{n(n+1)}{2}$
+			\item For each pair, either $(x,y)$ or $(y,x)$ may be in $R$, unless $x=y$.
+			\newline $\therefore$ there are $\frac{n(n+1)}{2}-n=\frac{n(n-1)}{2}$ pairs that may be swapped out for their inverse.
+			\newline As in part (a), we have 2 options for each of our pairs, so we have $2^\frac{n(n-1)}{2}$ relations
 		\end{enumerate}
 	
 	\end{enumerate}
