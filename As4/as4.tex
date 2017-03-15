@@ -22,7 +22,11 @@
 		
 		\item 
 		\begin{enumerate}
-			\item In order for a relation to be both symmetric and antisymmetric, it must only contain reflexive elements. For each reflexive pair $(x,x)$, there are 2 options: either the pair is in the relation, or it is not. Therefore there are $2^n$ relations on $A$ that are both symmetric and antisymmetric.
+			\item In order for a relation to be both symmetric and antisymmetric, it must only contain reflexive elements. For each reflexive pair $(x,x)$, there are 2 options: either the pair is in the relation, or it is not.
+			\newline $\therefore$ there are $2^n$ relations on $A$ that fulfill the requirements
+			\item If $R$ is a relation on $A$ that is antisymmetric, then it may not contain any 2 pairs such that $(x,y)$ and $(y,x)$ are both in $R$ unless $x=y$.
+			\newline $\therefore$ we can count the number of elements in the upper diagonal half of the corresponding relation matrix.
+			\newline This is equivalent to $\sum\limits_{i=1}^{n}i=\frac{n(n+1)}{2}$
 		\end{enumerate}
 	
 	\end{enumerate}
