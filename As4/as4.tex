@@ -6,6 +6,8 @@
 \usepackage{tikz}
 \usepackage{mathtools}
 
+\usetikzlibrary{arrows}
+
 \title{MATH 222 - Assignment 4}
 \date{March 2017}
 \author{Daniel Frankcom}
@@ -34,6 +36,27 @@
 			\newline Since $R$ is reflexive, for every $x\in A$ the pair $(x,x)$ must be in $R$.
 			\newline Since every value in the domain is already mapped to itself, we know that no value can map to another due to our function restriction.
 			\newline $\therefore R$ is made up of all of the reflexive pairs $(x,x)$ where $x\in A$
+		\end{enumerate}
+	
+		\item 
+		\begin{enumerate}
+			\item \mbox{}
+			\newline
+			\begin{tikzpicture}
+			[scale=.8,auto=left,every node/.style={circle,fill=blue!40}, edge/.style={->,> = latex'}]
+			\node (n1) at (0,0)  {1};
+			\node (n2) at (0,2)  {2};
+			\node (n3) at (2,2)  {3};
+			\node (n4) at (2,0)  {4};
+			
+			\foreach \from/\to in {n1/n4,n3/n4,n3/n1,n3/n2}
+			\draw[edge] (\from) to (\to);
+			
+			\draw[edge] (n1) to [out=180,in=270,looseness=4] (n1);
+			\draw[edge] (n2) to [out=180,in=90,looseness=4] (n2);
+			\draw[edge] (n3) to [out=360,in=90,looseness=4] (n3);
+			\draw[edge] (n4) to [out=360,in=270,looseness=4] (n4);
+			\end{tikzpicture}
 		\end{enumerate}
 	
 	\end{enumerate}
