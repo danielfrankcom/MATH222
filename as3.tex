@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathtools}
+
+\title{MATH 222 - Assignment 3}
+\date{March 2017}
+\author{Daniel Frankcom}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\setlength{\parindent}{0pt}
+	\newcommand{\forceindent}{\leavevmode{\parindent=72pt\indent}}
+	\newpage
+	\pagenumbering{arabic}
+	
+	\begin{enumerate}
+		\item 
+		\begin{enumerate}
+			\item This problem can be modeled as the number of ways to put a plus sign between 16 1s, which is equivalent to $2^{n-1}=2^{16-1}=2^{15}=32768$ compositions.
+			
+			\item This problem can be modeled in the same manner, however this time we will treat each set of 2 1s (1+1) as an object, since our summands must be even.
+			\newline $\therefore 2^{(\frac{n}{2})-1}=2^{8-1}=2^7=128$ compositions 
+		\end{enumerate}
+		
+		\item
+		\begin{enumerate}
+			\item Since we are limited to exactly 7 runs, we cannot have 2 runs of A next to each other, as this would result in less than exactly 7. Therefore there are 2 cases:
+			\begin{enumerate}
+				\item There are 3 runs of A and 4 runs of B
+				\newline In this case, we must distribute 7 wins for A among 3 runs, which is equivalent to counting the number of integer solutions to $x_1+x_2+x_3=7$, where $x_i$ represents the run of A in the list from left to right.
+				\newline We must ensure however that each bin has at least one element, so we can modify our question slightly to be number of integer solutions to $y_1+y_2+y_3=4$, assuming that each run already contains 1 element.
+				\newline $\therefore {{w+r-1}\choose{r-1}}={{4+3-1}\choose{3-1}}={6\choose2}$
+				\newline We must also distribute 8 wins for B among 4 runs, which using the same process as above, yields ${{5+4-1}\choose{4-1}}={8\choose3}$
+				\newline We can then multiply these together, since for arrangement of runs of A, there are ${8\choose3}$ runs of B.
+				\newline $\therefore$ the number of possible winner lists when there are 3 runs of A and 4 runs of B is ${6\choose2}{8\choose3}=(15)(56)=840$
+				
+				\item There are 4 runs of A and 3 runs of B
+				\newline Using a similar process to that above, we get ${7\choose3}{7\choose2}=735$
+			\end{enumerate}
+			We can then add these 2 possibilities together to compute the total number of list outcomes: $840+735=1575$ lists
+			
+			\item Here we must distribute 15 wins among 7 runs, which is equivalent to counting the number of integer solutions to $x_1+x_2+\dots+x_7=15$, where $x_i$ represents the run number from left to right.
+			\newline We know that there must be at least 1 win each each run however, as otherwise there would be less than the required 7 runs.
+			\newline $\therefore$ we can rewrite our equation to be $x_1+x_2+\dots+x_7=8$
+			\newline The number of integers that satisfy this is ${{w+r-1}\choose{r-1}}={{8+7-1}\choose{7-1}}={14\choose6}$
+			\newline This means that we have ${14\choose6}$ arrangements of wins for our runs, however we know that there cannot be an A run and a B run next to each other, as this would diminish the total number of runs.
+			\newline Therefore our runs must alternate A and B, so there are 2 cases:
+			\begin{enumerate}
+				\item Our list starts with an A run
+				\item Our list starts with a B run
+			\end{enumerate}
+			For each of these cases there are ${14\choose6}$ ways to arrange our wins, so there are $2{14\choose6}$ possible lists in total.
+			\newline $\therefore 2{14\choose6}=2(3003)=6006$ possible lists
+		\end{enumerate}
+	
+		\item Since we have lower bounds on $x_3$ and $x_4$, we can rewrite the equation by assuming that $x_3$ already contains 3, and that $x_4$ already contains 4.
+		\newline The equation then becomes $x_1+x_2+x_3+x_4=15$
+		\newline Due to the upper bounds on our integers, this problem can now be written as an inclusion/exclusion question.
+		\newline
+		\newline Let $N$ be the total number of integer solutions to $x_1+x_2+x_3+x_4=15$ with no restrictions on any of the variables.
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{15+4-1}\choose{4-1}}={18\choose3}=816$
+		\newline Let $C_1$ be the condition that $x_1\geq6$
+		\newline Let $C_2$ be the condition that $x_2\geq7$
+		\newline Let $C_3$ be the condition that $x_3\geq7$
+		\newline Let $C_4$ be the condition that $x_4\geq6$
+		\newline Then the answer to this question can be computed by $N(\bar{C_1}\bar{C_2}\bar{C_3}\bar{C_4})$
+		\newline
+		\newline $N(C_1)$ is the number of solutions to $x_1+x_2+x_3+x_4=15$ where $x_1\geq6$
+		\newline This can be re-written as $x_1+x_2+x_3+x_4=9$ where $x_1$ has no restrictions
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{9+4-1}\choose{4-1}}={12\choose3}=220$
+		\newline $N(C_2)$ is the solutions to $x_1+x_2+x_3+x_4=8$ where $x_2$ has no restrictions
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{8+4-1}\choose{4-1}}={11\choose3}=165$
+		\newline $N(C_3)$ and $N(C_4)$ have the same number of solutions as $N(C_2)$ and $N(C_1)$
+		\newline
+		\newline $N(C_iC_j)$ is shown by $x_1+x_2+x_3+x_4=15$ where $x_i\geq6$ and $x_j\ge7$
+		\newline This is equivalent to $x_1+x_2+x_3+x_4=2$ with no restrictions
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{2+4-1}\choose{4-1}}={5\choose3}=10$
+		\newline There are 4 such combinations of this case set.
+		\newline $N(C_iC_j)$ is shown by $x_1+x_2+x_3+x_4=15$ where $x_i,x_j\geq6$
+		\newline This is equivalent to $x_1+x_2+x_3+x_4=3$ with no restrictions
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{3+4-1}\choose{4-1}}={6\choose3}=20$
+		\newline There are 2 such combinations of this case set.
+		\newline $N(C_iC_j)$ is shown by $x_1+x_2+x_3+x_4=15$ where $x_i,x_j\geq7$
+		\newline This is equivalent to $x_1+x_2+x_3+x_4=1$ with no restrictions
+		\newline $\therefore {{r+n-1}\choose{n-1}}={{1+4-1}\choose{4-1}}={4\choose3}=4$
+		\newline There are 2 such combinations of this case set.
+		\newline
+		\newline The intersections containing both 3 and 4 conditions all have 0 solutions, as there is no way to sum 3 values  that follow any of the conditions and achieve a result that is equal to 15.
+		\newline
+		\newline $\bar{N}=N-\sum N(C_i)+\sum N(C_iC_j)$
+		\newline $=816-(2*220+2*165)+(4*10+2*20+2*4)=816-770$
+		\newline $=88$ integer solutions within the given bounds
+		
+		\newpage
+		\item Let $N$ be the number of permutations of the 9 digits, or 9!
+		\newline Let $C_i$ be the condition that digit $i$ is immediately followed by $i+1$, where $i=1,2,\dots,8$
+		\newline Then the answer to this question can be computed by $N(\bar{C_1}\bar{C_2}\dots\bar{C_8})$
+		\newline
+		\newline $N(C_i)$ can be modeled by grouping together $i$ and $i+1$, treating them as a single digit. By doing this, the number of permutations becomes 8!
+		\newline $N(C_iC_j)$ can be modeled by grouping together the 2 sets of digits, resulting in 7! Note that it does not matter if we have 3 digits consecutively, as the resulting number of movable objects remains the same.
+		\begin{center}
+			$\vdots$
+		\end{center}
+		$N(C_1C_2\dots C_8)$ results in 1! as by this point all digits are grouped.
+		\newline
+		\newline $\bar{N}=N-\sum N(C_i)+\sum N(C_iC_j)-\dots+N(C_iC_j\dots C_8)$
+		\newline $=9!-(8)8!+(7)7!-\dots+1$
+		\newline $=362880-322560+35280-4320+600-96+18-4+1$
+		\newline $=71799$ permutations
+		
+		\item $\sum\limits_{k=0}^{n-1}(-1)^k{n\choose k}(n-k)^m$ can be used to model the number of onto functions 2 given sets, and in our case $n=m=9$
+		\newline $=\sum\limits_{k=0}^{8}(-1)^k{8\choose k}(8-k)^9$
+		\newline $=8^9-(8)7^9+(28)6^9-(56)5^9+(70)4^9-(56)3^9+(28)2^9-8$
+		\newline $=1451520$ functions
+		\newline We then need to remove the functions in which $f(x)=x$ for all even x.
+		\newline There are 4 even numbers in the set, and each represents the number of onto mappings from a set of size 8 to another set of size 8.
+		\newline Therefore the number of onto mappings in which $f(x)=x$ for any x is:
+		\newline $=4\sum\limits_{k=0}^{7}(-1)^k{7\choose k}(7-k)^8$
+		\newline $=4(7^8-(7)6^8+(21)5^8-(35)4^8+(35)3^8-(21)2^8+7)$
+		\newline $=4(141120)$
+		\newline $=564480$ functions
+		\newline $\therefore 1451520-564480$
+		\newline $=887040$ functions that fulfill the condition
+		
+		\item When dividing by 12, there are 12 possible remainders, therefore in 13 chosen integers, at least 2 must have the same remainder.
+		\newline Our integers $a,b$ can be written as $a=12k_1 + r$ and $b=12k_2+r$
+		\newline $\therefore a-b=12k_1+r-12k_2-r$
+		\newline $\therefore a-b=12(k_1-k_2)$
+		\newline $\therefore 12(a-b)=k_1-k_2$ which implies that $12|a-b$ since $k_1-k_2$ is an integer
+		
+	
+	\end{enumerate}
+\end{document}
