@@ -57,6 +57,20 @@
 			\draw[edge] (n3) to [out=360,in=90,looseness=4] (n3);
 			\draw[edge] (n4) to [out=360,in=270,looseness=4] (n4);
 			\end{tikzpicture}
+			
+			\item \mbox{}
+			\newline
+			\begin{tikzpicture}
+			[scale=.8,auto=left,every node/.style={circle,fill=blue!40}, edge/.style={->,> = latex'}]
+			\node (n1) at (1,2)  {1};
+			\node (n2) at (2,2)  {2};
+			\node (n3) at (0,0)  {3};
+			\node (n4) at (0,4)  {4};
+			
+			\foreach \from/\to in {n1/n4,n3/n4,n3/n1,n3/n2}
+			\draw[edge] (\from) to (\to);
+
+			\end{tikzpicture}
 		\end{enumerate}
 	
 	\end{enumerate}
