@@ -125,7 +125,8 @@
 	
 		\item
 		\begin{enumerate}
-			\item $g(x)=x^3\frac{1}{1-x^2}$
+			\item $g(x)=\frac{x^3}{1-x^2}$
+			\newline $=x^3\frac{1}{1-x^2}$
 			\newline $=x^3\sum\limits_{n=0}^{\infty}(x^2)^n$
 			\newline $=x^3\sum\limits_{n=0}^{\infty}x^{2n}$
 			\newline $=x^3(1+x^2+x^4+...)$
@@ -139,6 +140,14 @@
 			\newline $=-(1-12x+48x^2-64x^3)$
 			\newline $=-1+12x-48x^2+64x^3$
 			\newline $-1,12,-48,64,0,0,...$
+			
+			\item $g(x)=\frac{1-x}{1+x}$
+			\newline $=\frac{1}{1+x}-x\frac{1}{1+x}$
+			\newline $=\sum\limits_{n=0}^{\infty}(-1)^nx^n-x\sum\limits_{n=0}^{\infty}(-1)^nx^n$
+			\newline $=(1-x+x^2-x^3+...)-x(1-x+x^2-x^3+...)$
+			\newline $=(1-x+x^2-x^3+...)-(x-x^2+x^3-x^4+...)$
+			\newline $=1-2x+2x^2-2x^3+...$
+			\newline $1,-2,2,-2,2,...$
 		\end{enumerate}
 		
 	\end{enumerate}
