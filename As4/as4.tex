@@ -103,6 +103,20 @@
 		\end{enumerate}
 		
 		\item
+		\begin{enumerate}
+			\item In order for $R_Y$ to be a partial order on $Y$ it must be anti-symmetric, reflexive, and transitive.
+			\begin{enumerate}
+				\item Since for any $a,b\in Y$, $(a,b)$ is in $R_Y$ if and only if it is in $R$, then $(b,a)$ cannot also be in $R_Y$ since $R$ is already a partial order, and therefore cannot contain $(b,a)$
+				\newline $\therefore R_Y$ is anti-symmetric
+				
+				\item Since for any $a\in Y$, $(a,a)$ is in $R$, we know that it is also in $R_Y$ since both of the inclusion conditions are met.
+				\newline $\therefore R_Y$ is reflexive
+				
+				\item Since for any $a,b,c\in Y$, if $(a,b)$ and $(b,c)$ are both in $R$ then we know that $(a,c)$ must also be in $R$ since it is a partial order
+				\newline $\therefore R_Y$ is transitive
+			\end{enumerate}
+			$\therefore$ $R_Y$ is a partial order on $Y$
+		\end{enumerate}
 		
 	\end{enumerate}
 \end{document}
