@@ -158,6 +158,14 @@
 			\newline This gives us $0,1,-1,1,-1,...$
 			\newline Now we need to deal with the increasing powers of 2. Since these numbers are clearly tied to n, we can multiply x in the denominator by 2, so that when the sum $\sum\limits_{n=0}^{\infty}(-1)^nx^n$ is evaluated we will get $(2x)^n$ and subsequently $2^n$ in front of our $x$
 			\newline $\therefore g(x)=\frac{x}{1+2x}$ 
+			
+			\newpage
+			\item It is immediately apparent that some values of n are skipped in this sequence, but we will start with $g(x)=\frac{1}{1+x}$ once again due to the alternating signs
+			\newline This gives us $1,-1,1,-1,...$
+			\newline We will perform the same procedure as above by making $g(x)=\frac{x}{1+x}$
+			\newline This give us $0,1,-1,1,-1,...$
+			\newline Now we must deal with the fact that numbers are skipped. Since every other number is skipped, we are dealing with $x^{2n}$ in our sum. To accomplish this in our generating function, we can square $x$ in the denominator
+			\newline $\therefore g(x)=\frac{x}{1+x^2}$
 		\end{enumerate}
 		
 	\end{enumerate}
