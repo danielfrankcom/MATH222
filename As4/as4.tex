@@ -149,6 +149,16 @@
 			\newline $=1-2x+2x^2-2x^3+...$
 			\newline $1,-2,2,-2,2,...$
 		\end{enumerate}
+	
+		\item
+		\begin{enumerate}
+			\item This sequence looks similar to $g(x)=\frac{1}{1+x}$ in that the signs alternate
+			\newline This gives us $1,-1,1,-1,...$
+			\newline Unfortunately the corresponding sequence does not start with 0, but we can fix this by amending our guess to $g(x)=\frac{x}{1+x}$
+			\newline This gives us $0,1,-1,1,-1,...$
+			\newline Now we need to deal with the increasing powers of 2. Since these numbers are clearly tied to n, we can multiply x in the denominator by 2, so that when the sum $\sum\limits_{n=0}^{\infty}(-1)^nx^n$ is evaluated we will get $(2x)^n$ and subsequently $2^n$ in front of our $x$
+			\newline $\therefore g(x)=\frac{x}{1+2x}$ 
+		\end{enumerate}
 		
 	\end{enumerate}
 \end{document}
