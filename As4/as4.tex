@@ -167,8 +167,12 @@
 			\newline Now we must deal with the fact that numbers are skipped. Since every other number is skipped, we are dealing with $x^{2n}$ in our sum. To accomplish this in our generating function, we can square $x$ in the denominator
 			\newline $\therefore g(x)=\frac{x}{1+x^2}$
 			
-			\item There will be many runs of 4 zeros in this sequence, as unless $5|n$ there is no way to give a player $\$n$ using the specified chips
-			\newline As each multiple of 5 is reached, there is 1 more way to achieve this amount than there were ways to achieve $\$(n-5)$
+			\item We can begin to solve this problem by noticing that for a coefficient $a_y$ to exist, there must be an $x^y$ in our final expression. The only time that $x^y$ will exist, is when $y$ can be made up of our $5,10,25,100$ dollar denominations.
+			\newline We can set up a set of expressions to represent our final expression as follows:
+			\newline $g(x)=(1+x^5+x^{10}+...)(1+x^{10}+x^{20}+...)(1+x^{25}+...)(1+x^{100}+...)$
+			\newline $=(\sum\limits_{n=0}^{\infty}x^{5n})(\sum\limits_{n=0}^{\infty}x^{10n})(\sum\limits_{n=0}^{\infty}x^{25n})(\sum\limits_{n=0}^{\infty}x^{100n})$
+			\newline $=\frac{1}{1-x^5}\cdot\frac{1}{1-x^{10}}\cdot\frac{1}{1-x^{25}}\cdot\frac{1}{1-x^{100}}$
+			\newline $=\frac{1}{(1-x^5)(1-x^{10})(1-x^{25})(1-x^{100})}$
 		\end{enumerate}
 		
 	\end{enumerate}
